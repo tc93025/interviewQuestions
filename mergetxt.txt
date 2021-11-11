@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 asr
 asfa
 merge2
 merge3
+=======
+merge7
+>>>>>>> test7
