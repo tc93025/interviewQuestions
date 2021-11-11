@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 asr
 asfa
 merge2
@@ -6,3 +7,6 @@ merge3
 =======
 merge7
 >>>>>>> test7
+=======
+merge7
+>>>>>>> fa671e8ad3a32e33093fb5bace29daee7edf06f2
