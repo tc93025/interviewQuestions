@@ -30,3 +30,22 @@ function dispatch(key, data) {
 export {
   on, off, dispatch
 }
+
+function flat(params){
+	let result=[]
+	function re(){
+		if(Array.isArray(params)){
+			for(let i=0;i<params.length;i++){
+				result.push(flat(params[i]))
+			}
+		} else{
+			result.push(params)
+		}
+	}
+	re(params)
+	
+	return result
+}
+
+console.log('result',flat( [1, [2], [3,[4,5]]]))
+

@@ -62,3 +62,21 @@ Promise.allSettled = function (promises) {
         return { status: 'rejected', reason: error }
     })))
 }
+
+function flat(params) {
+    let result = []
+    console.log(params)
+  
+    if (Array.isArray(params)) {
+      for (let i = 0; i < params.length; i++) {
+        result = [...result, ...flat(params[i])]
+      }
+    } else {
+      result.push(params)
+    }
+  
+  
+    return Array.from(new Set(result))
+  }
+  
+  console.log(flat([1, 32, 4, [4, 5, 7], 8]))

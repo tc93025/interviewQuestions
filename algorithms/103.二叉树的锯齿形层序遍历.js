@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=102 lang=javascript
+ * @lc app=leetcode.cn id=103 lang=javascript
  *
- * [102] 二叉树的层序遍历
+ * [103] 二叉树的锯齿形层序遍历
  */
 
 // @lc code=start
@@ -17,7 +17,7 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
+var zigzagLevelOrder = function(root) {
   const res = [];
   const queue = [];
 
@@ -25,6 +25,7 @@ var levelOrder = function(root) {
 
   while(queue.length > 0) {
     const level = [];
+    let orderLeft = true;
 
     queue.forEach(item => {
       level.push(item)
@@ -34,6 +35,8 @@ var levelOrder = function(root) {
     })
 
     res.push(level)
+    if(orderLeft) queue.reverse()
+    orderLeft = !orderLeft
   }
 
   return res
