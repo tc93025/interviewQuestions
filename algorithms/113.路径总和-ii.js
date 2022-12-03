@@ -19,19 +19,24 @@
  * @return {number[][]}
  */
 var pathSum = function(root, targetSum) {
-  let result = []
-  let nowList = []
+    let result = []
+    let nowList = []
 
-  const dfs = (root, targetSum) =>{
-    if(!root) return 
-    nowList.push(root.val)
-    targetSum -=root.val
-    if(!root.left && !root.right && targetSum===0) result.push(nowList) 
-    dfs(root.left,targetSum)
-    dfs(root.right,targetSum) 
-  }
+    const dfs = (root, targetSum) =>{
+        if(!root) return 
+        nowList.push(root.val)
+        targetSum -= root.val
+        if(!root.left && !root.right && targetSum===0) {
+            result.push(nowList.map(item=>item)) // 数组浅拷贝一下
+        }
+        dfs(root.left,targetSum)
+        dfs(root.right,targetSum) 
+        nowList.pop()
+    }
 
-  return dfs(root,targetSum)
+    dfs(root,targetSum)
+
+    return result
 
 };
 // @lc code=end
