@@ -18,7 +18,31 @@
  * @return {number[][]}
  */
 var levelOrderBottom = function(root) {
+  let res = [];
+  let queue = [];
 
+  if(root != null) queue.push(root);
+
+  while(queue.length > 0) {
+      let n = queue.length
+      let level = [];
+
+      for(let i=0;i<n;i++){
+          let node = queue.shift()
+          level.push(node.val)
+          if(node.left) queue.push(node.left)
+          if(node.right) queue.push(node.right)
+      }
+      // level.push(item)
+
+      // if(item.left) queue.push(item.left)
+      // if(item.right) queue.push(item.right)
+      
+
+      res.unshift(level)
+  }
+
+  return res
 };
 // @lc code=end
 

@@ -18,7 +18,13 @@
  * @return {number}
  */
 var countNodes = function(root) {
-  
+  // 后序遍历
+  if (root == null) return 0;
+    let leftNum = countNodes(root.left);
+    let rightNum = countNodes(root.right)
+    return leftNum + rightNum + 1;
+
+  // 随便遍历都行
 };
 // @lc code=end
 
